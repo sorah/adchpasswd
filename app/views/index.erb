@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>hi</title>
+</head>
+<body>
+<% notice ||= nil %>
+<% error ||= nil %>
+
+<% if notice %>
+  <div class="notice"><%= notice %></div>
+<% end %>
+
+<% if error %>
+  <div class="error"><%= error %></div>
+<% end %>
+
+<form action="/change" method="POST">
+  <p><input type="text" placeholder="Login" name="login"></p>
+  <p><input type="password" placeholder="Current Password" name="password"></p>
+  <p><input type="password" placeholder="New Password" name="new_password"></p>
+  <p><input type="password" placeholder="Confirm" name="new_password_confirmation"></p>
+
+  <input type="submit" value="Change">
+</form>
+</body>
+</html>
