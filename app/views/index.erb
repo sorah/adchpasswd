@@ -1,27 +1,125 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>hi</title>
-</head>
-<body>
-<% notice ||= nil %>
-<% error ||= nil %>
+  <head>
+    <meta charset='utf-8'>
+    <title>Adchpasswd</title>
 
-<% if notice %>
-  <div class="notice"><%= notice %></div>
-<% end %>
+    <style type="text/css">
+      * {
+        font-family: 'Avenir Next', sans-serif;
+      }
 
-<% if error %>
-  <div class="error"><%= error %></div>
-<% end %>
+      body {
+        text-align: center;
+        background-color: white;
+      }
 
-<form action="/change" method="POST">
-  <p><input type="text" placeholder="Login" name="login"></p>
-  <p><input type="password" placeholder="Current Password" name="password"></p>
-  <p><input type="password" placeholder="New Password" name="new_password"></p>
-  <p><input type="password" placeholder="Confirm" name="new_password_confirmation"></p>
+      .container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 400px;
+        text-align: left;
+        padding-top: 12px;
+      }
 
-  <input type="submit" value="Change">
-</form>
-</body>
+      .form, .notice, .error {
+        border-radius: 3px;
+        margin-bottom: 12px;
+        padding: 8px 20px;
+      }
+
+      .form {
+        padding: 12px 20px;
+        border: 1px solid #ddd;
+        background-color: white;
+      }
+
+      .notice {
+        border: 1px solid #D6E9C6;
+        background-color: #DFF0D8;
+        color: #3C763D;
+      }
+
+      .error {
+        border: 1px solid #EBCCD1;
+        background-color: #F2DEDE;
+        color: #A94442;
+      }
+
+      .form p {
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group input {
+        width: 100%;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+
+        font-size: 20px;
+        padding: 6px 4px;
+
+        border: 1px solid #e9e9e9;
+        border-radius: 3px;
+      }
+
+      input[type="submit"] {
+        background-color: #337AB7;
+        color: white;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #286090;
+      }
+
+      .credit {
+        text-align: center;
+        color: #767676;
+        font-size: 12px;
+      }
+
+      .credit * {
+        color: #767676;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <% if notice %>
+        <div class="notice"><%= notice %></div>
+      <% end %>
+
+      <% if error %>
+        <div class="error"><%= error %></div>
+      <% end %>
+
+      <div class="form">
+        <form action="/change" method="POST">
+          <div class="form-group">
+            <p>Change your password in Active Directory.</p>
+          </div>
+          <div class="form-group">
+            <p><input type="text" placeholder="Logon name" name="login"></p>
+            <p><input type="password" placeholder="Current Password" name="password"></p>
+          </div>
+          <div class="form-group">
+            <p><input type="password" placeholder="New Password" name="new_password"></p>
+            <p><input type="password" placeholder="Confirmation" name="new_password_confirmation"></p>
+          </div>
+          <div class="form-group">
+            <p><input type="submit" value="Change"></p>
+          </div>
+        </form>
+      </div>
+
+      <div class="credit">
+        powered by <a href="https://github.com/sorah/adchpasswd">sorah/adchpasswd</a>
+      </div>
+    </div>
+  </body>
 </html>
