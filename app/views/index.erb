@@ -90,6 +90,7 @@
   </head>
   <body>
     <div class="container">
+      <% notice ||= nil; error ||= nil %>
       <% if notice %>
         <div class="notice"><%= notice %></div>
       <% end %>
