@@ -151,7 +151,7 @@ module Adchpasswd
         status 400
 
         result = ldap.get_operation_result
-        next erb(:index, locals: {error: "Couldn't update password for #{binddn} (#{result.code}: #{result.message})"})
+        next erb(:index, locals: {error: "Couldn't update password for #{user.dn} (#{result.code}: #{result.message})"})
       end
 
       redirect '/?message=success'
